@@ -1,0 +1,150 @@
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.nav-bar{
+    background-image: linear-gradient(to right, #46887E, #228777);
+    padding-right: 0.5%;
+    padding-block: 0.5%;
+    text-align: right;
+}
+
+.profile{
+    color: white;
+    width: 1.5%;
+    height: auto;
+}
+
+.logo{
+    max-width: 7.5%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7.5%;
+}
+
+.welcome-screen-header{
+    text-align: center;
+    margin-bottom: 2.5%;
+}
+.main-header{
+    text-align: center;
+}
+.sub-header{
+    text-align: center;
+    font-size: 1rem;
+   /*  text-transform: uppercase;
+        color: #46887E; */
+
+}
+
+.button-block{
+    background-color: #F5B129;
+    color:#ffffff;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    display:block;
+    cursor:pointer;
+    width: 30%;
+	padding: 15px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+.button-block:hover {
+	background-color:#DB960A;
+}
+
+.button-block:active {
+	position:relative;
+	top:1px;
+}
+
+input[type=text],[type=password]{
+    border-radius: 25px;
+    border: white;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    letter-spacing: 0.5rem;
+    text-align: center;
+    text-decoration:none;
+    display:block;
+    cursor:pointer;
+    width: 30%;
+    padding: 15px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+#serial-number{
+    font-weight: bold;
+}
+
+#email{
+    letter-spacing: 0.1rem;
+    text-align: left;
+}
+
+#password{
+    letter-spacing: 0.1rem;
+    text-align: left;
+}
+
+label{
+    display: block;
+    color: #46887E;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-left: 34%;
+    padding-bottom: 5px;
+}
+
+
+/*Removes selection border for inputs*/
+textarea:focus, input:focus{
+    outline: none;
+}
+
+
+/* .flex-container{
+    display: flex;
+    align-items: stretch;
+    
+}
+.content{
+    flex-direction: column;
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: gray; 
+    border-width: 2px;
+    padding: 2%;
+}
+.temp-sens{
+    justify-content: center;
+}
+
+<!-- <div>
+<script src="./main.js"></script>
+</div> -->
+<!-- <h1 class="date-greeting">Good morning/evening, friend</h1> --> 
+<div class="flex-container">
+<div class="content chart emg">
+    <img src="./EMG-signal.png" alt="recommended EMG signal processing method">
+</div>
+</div>
+<div class="flex-container"> 
+<div class="content temp-sens">
+    <h2>Finger sensor temp is 45*C</h2>
+</div>
+<div class="content temp-sens">
+    <h2>Arduino temp is 45*C</h2>
+</div>
+</div> */
