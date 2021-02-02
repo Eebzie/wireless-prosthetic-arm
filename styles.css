@@ -41,6 +41,32 @@ body{
 
 }
 
+button{
+    outline: none;
+    border: none;
+    font-family: inherit;
+    font-size: 100%;
+    width: 30%;
+    margin: 0;
+}
+
+button.button-block{
+    background-color: #F5B129;
+    color:#ffffff;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    display:block;
+    cursor:pointer;
+	padding: 15px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
 .button-block{
     background-color: #F5B129;
     color:#ffffff;

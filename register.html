@@ -18,10 +18,17 @@
         <h1 class="main-header">Welcome to LIMB!</h1>
 <!--         <h2 class="sub-header">Please enter your serial number</h2>
  -->    </div>
+
+
+    </script>
     <div class="button-container">
-        <label for="serial-number">SERIAL NUMBER</label>
-        <input type="text" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++">
-        <a href="#" class="button button-block register">REGISTER</a>
+        <form action="index.html">
+            <label for="serial-number">SERIAL NUMBER</label>
+            <input type="text" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++" required> 
+            <button class="button button-block register">REGISTER</button>
+            <!-- <a href="#" class="button button-block register">REGISTER</a>-->
+            <!--- REGISTER button must validate whether or not S/N exists in the database-->
+        </form>
     </div>
 </body>
 </html>
