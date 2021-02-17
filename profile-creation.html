@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <link rel="stylesheet" href="style-annie.css"/>
+</head>
+<body>
+    <div class="nav-bar">
+        <input type="image" class="logo" src="images/LIMB_logo.svg">
+    </div>
+    <h1 class ="pc-header">Create Your Profile</h1>
+    <div class="creation-container">
+        <header> 
+            <input type="image" class ="icon" src="images/icon.svg">
+            <!-- will need to make this a submit, either user uploads photo or chooses from a set list -->
+
+            <form action="/action_page.php" method="get" target="_blank">
+
+                <div class="creation-input">
+                    <div class="block">
+                        <info-types>Full Name</info-types>
+                        <input class ="input-box" type="text" placeholder="Enter your full name here" required>
+                    </div>
+                    <div class="block">
+                        <info-types>Location</info-types>
+                        <input class ="input-box" type="text" placeholder="Enter your location here" required>
+                    </div>
+                    <div class="block">
+                        <info-types>Birthday</info-types>
+                        <input class ="input-box" type="text" placeholder="DD/MM/YYYY" required>
+                    </div>
+                    <div class="block">
+                        <info-types>Email</info-types>
+                        <input class ="input-box" type="text" placeholder="Enter your email here" required>
+                    </div>
+                    <div class="block">
+                        <info-types>Password</info-types>
+                        <input type="password" class ="input-box" type="text" placeholder="Enter your password here" required>
+                    </div>
+                    <div class="block">
+                        <info-types>Serial Number</info-types>
+                        <input class ="input-box" type="text" placeholder="Enter your SN here" required>
+                    </div>
+                </div>
+                <button class ="button-create" type="submit">CREATE ACCOUNT</button>
+            </form>
+
+        </header>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
