@@ -6,20 +6,45 @@
     <title>Home Screen</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./style.css">
     
 </head>
 <body>
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- ===== MAIN JS ===== -->
+    <!--<script src="navbar.js"></script>-->
+
+    <!-- ===== NAV BAR ===== -->
     <div class="nav-bar">
-        <input type="image" class="button profile"src="images/profile.svg" alt="profile and settings button">
-    <!-- <a href="#profile" class="profile">Profile</a>-->    
+        <img src="images/LIMBlogo.svg" alt="LIMB logo" id="nav-logo">
+        <a href="" class="profileSettings"><ion-icon name="person-circle-sharp"></ion-icon></a>    
     </div>
+    <nav>
+        <ul class="nav-links">
+            <li>
+                <a href="#">Accessibility</a>
+            </li>
+            <li>
+                <a href="#">Dark Mode</a>
+            </li>
+            <li>
+                <a href="#">Help Center</a>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+        </ul>
+    </nav>
+
     <div class="logo-welcome-message">
         <img src="images/logo.png" alt="LIMB logo" class="logo">
         <h1 class="main-header">Welcome to LIMB!</h1>
     </div>
     <div class="button-container">
-        <button formaction="register.html" class="button button-block register">REGISTER</button>
+        <!-- I purposely chose to remove this as a button because we are given two options and buttons trigger with space. Button styling is also very finicky-->
+        <!-- <button formaction="register.html" class="button button-block register">REGISTER</button> -->
         <a href="register.html" class="button button-block register">REGISTER</a>
         <a href="login.html" class="button button-block login">LOGIN</a>
     </div>
