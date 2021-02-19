@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="dashboard_styles.css" />
+    <title>Dashboard</title>
+  </head>
+  <body class="preload">
+
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- ===== MAIN JS ===== -->
+    <script src="dashboard.js"></script>
+
+    <!-- ===== NAV BAR ===== -->
+    <header class="header">
+        <img src="images/LIMBlogo.svg" class="header-button" id="logoNav" alt="LIMB logo" >
+        <button class="header-button" id="btnNav" type="button">
+            <ion-icon name="person-circle-sharp"></ion-icon>      
+        </button>
+    </header>
+    <nav class="nav">
+        <div class="nav-links">
+            <!-- Insert profile picture here -->
+            <div>
+                <!-- Insert profile picture here -->
+            </div>
+            <a href="#" class="nav-link">
+                <ion-icon name="grid-outline"></ion-icon>
+                Dashboard
+            </a>
+            <a href="#" class="nav-link">
+                <ion-icon name="accessibility"></ion-icon>
+                Accessibility
+            </a>
+            <a href="#" class="nav-link">
+                <ion-icon name="moon-outline"></ion-icon>
+                Dark Mode
+            </a>
+            <a href="#" class="nav-link">
+                <ion-icon name="help-circle-outline"></ion-icon>
+                Help Center
+            </a>
+            <a href="#" class="nav-link ">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                About
+            </a>
+        </div>
+        <div class="nav-overlay"></div>
+    </nav>
+    <main style="padding: 30px 100px;">
+        <h1 style="color: #606060; display: flex; justify-content: left;">Good morning, Rachel 🌞</h1>
+        <!-- ===== Section 1 ===== -->
+        <div class="section-1">
+            <div class="left" ><img src="images/chart-placeholder.jpg" alt="" class="chart"></div>
+            <div class="right">
+                <div class="box box-1"><h1>21°C</h1><span>Finger Temperature Sensor</span></div>
+                <div class="box box-2"><h1>45°C</h1><span>Internal Temperature Sensor</span></div>
+            </div>
+        </div>
+        
+        <!-- 
+            LEFT: .toggle-btn, .chart, .hr-monitoring-chart, .live-chart
+                JS: grab data and toggle between different views 
+            RIGHT: .temp-sens finger, .temp-sens internal
+                JS: grab data
+         -->
+        <!-- ===== Section 2 ===== -->
+        <!-- 
+            CALENDAR: .calendar 
+                JS: grab data and display current date 
+            POSITIONS: .before-yesterday, .yesterday, .today
+                JS: grab data
+        -->
+    </main>
+
+    <footer style="display:flex; justify-content: center; padding: 50px">&copy; kneeCAPs 2021</footer>
+  </body>
+</html>
