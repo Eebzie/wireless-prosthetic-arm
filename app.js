@@ -4,7 +4,6 @@ const navSlide = () => {
 
     profileSettings.addEventListener('click', () =>{
         nav.classList.toggle('nav-active');
-        console.log("yes");
     }
 }
 navSlide();
