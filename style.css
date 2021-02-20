@@ -32,7 +32,12 @@ body{
     transition: none !important;
 }
 
-/* ===== INDEX ===== */
+/*Removes selection border for inputs*/
+textarea:focus, input:focus{
+    outline: none;
+}
+
+/* =============== BASE CSS FOR HEADER AND NAV BAR =============== */
 .header{
     position: fixed;
     top: 0;
@@ -67,6 +72,7 @@ nav{
     min-height: 8vh;
 }
 
+/* =============== MAIN CSS FOR CONTENT =============== */
 .logo{
     max-width: 100px;
     height: auto;
@@ -88,7 +94,6 @@ nav{
     font-size: 1rem;
    /*  text-transform: uppercase;
         color: #46887E; */
-
 }
 
 button{
@@ -100,7 +105,7 @@ button{
     margin: 0;
 }
 
-button.button-block{
+button.button-block, .button-block{
     background-color: #F5B129;
     color:#ffffff;
     border-radius: 25px;
@@ -116,24 +121,7 @@ button.button-block{
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px;
-}
-.button-block{
-    background-color: #F5B129;
-    color:#ffffff;
-    border-radius: 25px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    font-size: 1rem;
-    font-weight: bold;
-    text-align: center;
-    text-decoration:none;
-    text-shadow:0px 1px 0px #000000;
-    display:block;
-    cursor:pointer;
-    width: 30%;
-	padding: 15px 15px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
+    width: 31.5%;
 }
 
 .button-block:hover {
@@ -162,6 +150,12 @@ input[type=text],[type=password]{
     margin-bottom: 10px;
 }
 
+.serial-number-form{
+    display: flexbox;
+    flex-direction: column;
+
+}
+
 #serial-number{
     font-weight: bold;
 }
@@ -184,44 +178,3 @@ label{
     margin-left: 34%;
     padding-bottom: 5px;
 }
-
-
-/*Removes selection border for inputs*/
-textarea:focus, input:focus{
-    outline: none;
-}
-
-/* .flex-container{
-    display: flex;
-    align-items: stretch;
-    
-}
-.content{
-    flex-direction: column;
-    box-sizing: border-box;
-    border-style: solid;
-    border-color: gray; 
-    border-width: 2px;
-    padding: 2%;
-}
-.temp-sens{
-    justify-content: center;
-}
-
-<!-- <div>
-<script src="./main.js"></script>
-</div> -->
-<!-- <h1 class="date-greeting">Good morning/evening, friend</h1> --> 
-<div class="flex-container">
-<div class="content chart emg">
-    <img src="./EMG-signal.png" alt="recommended EMG signal processing method">
-</div>
-</div>
-<div class="flex-container"> 
-<div class="content temp-sens">
-    <h2>Finger sensor temp is 45*C</h2>
-</div>
-<div class="content temp-sens">
-    <h2>Arduino temp is 45*C</h2>
-</div>
-</div> */

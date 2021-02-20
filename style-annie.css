@@ -1,0 +1,306 @@
+
+
+/* ===== IONICONS ===== */
+.header-button ion-icon{
+    font-size: 35px;
+    color: white;
+}
+
+.nav-link ion-icon {
+    font-size: 20px;
+}
+
+/* MAIN */
+body{
+    --header-height: 50px;
+
+    margin: var(--header-height) 0 0 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.preload * {
+
+    /* Prevents any animations before site is done loading */
+    transition: none !important;
+}
+
+/*Removes selection border for inputs*/
+textarea:focus, input:focus{
+    outline: none;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 64px;
+    line-height: 75px;
+    color: #3A3335;
+}
+
+/* Navigation */
+.header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background: #46887E;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-button{
+    width: var(--header-height);
+    flex-shrink: 0;
+
+    /* Removing default button styling */
+    background: none;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.header-button#logoNav{
+    width: 30px;
+    padding: 12px;
+
+}
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    background: white;
+
+    /* For layering the nav-overlay */
+    z-index: 2; 
+
+    /* To keep the menu hidden by default */
+    transform: translateX(250px);
+
+    /* Animation */
+    transition: transform 0.3s;
+}
+
+.nav--open .nav-links{
+    transform: translateX(0);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.nav-link{
+    display: flex;
+    align-items: center;
+    color: #606060;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 12px 15px;
+
+    /* Animation */
+    background: transform 0.5s;
+}
+
+.nav-link > ion-icon {
+    margin-right: 15px;
+}
+
+.nav-link--active, .nav-link:hover{
+    color: #099578;
+    background-color: #eeeeee;
+}
+
+.nav-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+
+    /* To be hidden by default */
+    /* visibility HAS to be hidden otherwise nothing on the page is selectable */
+    visibility: hidden;
+    opacity: 0;
+
+    /* Animation */
+    transition: opacity 0.3s;
+}
+
+.nav--open .nav-overlay{
+    visibility: visible;
+    opacity: 1;
+}
+/* Creation Section */
+.pc-header{
+    margin: auto;
+    width: 1240px;
+    padding-top: 150px;
+    padding-bottom: 10px;
+    font-size: 64px;
+    line-height: 75px;
+}
+.creation-container{
+    margin: auto;
+    width: 1240px;
+    height: 709px;
+    left: 340px;
+    top: 285px;
+    background: #FFFFFF;
+    box-shadow: 5px 6px 20px 4px rgba(0, 0, 0, 0.09);
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.profilepic-default{
+    padding-top: 5%;
+    padding-left: 130px;
+}
+
+.creation-input{
+    margin-top: 10%;
+    padding-right: 130px;
+}
+
+.block{
+    margin-bottom: 10px;
+}
+
+info-types{
+    font-weight: bold;
+    font-size: 35px;
+    display: inline-block;
+    width:400px;
+    text-align: right;
+    color: #3A3335;
+    margin-right: 30px;
+}
+
+.input-box[type=text], .input-box[type=password], .input-box[type=date]{
+    height: 50px;
+    width: 300px;
+    font-size: 20px;
+    border: 2px solid #C4C4C4;
+    box-sizing: border-box;
+    border-radius: 75px; 
+    padding-right: 20px;
+    padding-left: 20px;   
+}
+
+p#serial-number{
+    display: inline;
+    width: 300px;
+    font-size: 30px;
+    color: #444444;
+
+}
+/* Creation Button */
+.button-create{
+    background-color: #3D7068;
+    color:#ffffff;
+    border-radius: 25px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    display:block;
+    cursor:pointer;
+	padding: 20px 20px;
+    margin-left: 130px;
+    margin-right:0px;
+    margin-top: 30px;
+    outline: none;
+    border: none;
+}
+.button-create:hover {
+	background-color:#228777;
+}
+
+/*About*/
+.about-blub{
+    font-size: 30px;
+    line-height: 42px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.about-header{
+    width: 1240px;
+    padding-top: 150px;
+    padding-bottom: 10px;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+/* About Buttons */
+button.button-block, .button-block{
+    background-color: #F5B129;
+    color: white;
+    border-radius: 32px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #000000;
+    display:block;
+    cursor:pointer;
+	padding: 20px 30px;
+    margin-top: 30px;
+    width: 35%;
+
+
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+.button-about:hover {
+	background-color:#DB960A;
+}
+.button-container{
+    padding-left: 30%;
+    padding-right: 30%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*team*/
+.team-section{
+    margin-top: 2%;
+    font-size: 30px;
+    line-height: 42px;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.team-members{
+    display: flex;
+    justify-content: space-between;
+}
+
+.member-info{
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%; 
+    margin-top: 1%
+}
+.headshot{
+    border-radius: 50%;
+    width: 200px;
+}
+
+.member-name, .member-title{
+    margin: 0;
+    border: border
+}
+.member-name{
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 35px;
+}
+.member-title{
+    font-weight: normal;
+    font-size: 25px;
+}
