@@ -16,4 +16,4 @@ The main design criteria are:
 - Creating an accessible and simple web application that concisely conveys sensor and prosthetic arm usage information with low latency
 
 ## Special Notice
-The web app is currently optimized for use on displays with widths of 1024px.
+The web app is currently optimized for use on displays with widths of 1920px
