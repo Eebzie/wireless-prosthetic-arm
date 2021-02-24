@@ -1,16 +1,15 @@
 /*===== GOOGLE FONTS =====*/
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");*/
+
 /*===== VARIABLES CSS =====*/
-/* :root{
+:root{
     /*===== Colours =====*/
-    /* --main-color: #46887E;
+    --main-color: #46887E;
     --dark-color: #46887E;
     --dark-color-alt: #46887E;
-    --white-color: #ffffff;
+    --white-color: #FFFFFF;
     --button-color: #F5B129;
-    /*===== Fonts =====*/
-    /* --dark-font: #606060;
-/* }
+}
 /* ===== IONICONS ===== */
 .header-button ion-icon{
     font-size: 35px;
@@ -172,3 +171,12 @@ body{
 .box-2 {
     background-color:#F79822; 
 }
+
+/* =============== FOOTER =============== */
+/* footer {
+    position: fixed;
+    left:0px;
+    bottom:0px;
+    height:30px;
+    width:100%;
+    background: var(--main-color); */
