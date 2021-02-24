@@ -1,16 +1,15 @@
 /*===== GOOGLE FONTS =====*/
 /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");*/
+
 /*===== VARIABLES CSS =====*/
-/* :root{
+:root{
     /*===== Colours =====*/
-    /* --first-color: #46887E;
+    --main-color: #46887E;
     --dark-color: #46887E;
     --dark-color-alt: #46887E;
-    --white-color: #46887E;
+    --white-color: #FFFFFF;
     --button-color: #F5B129;
-    /*===== Fonts =====*/
-/* }
-/*===== GOOGLE FONTS =====*/
+}
 
 /* ===== IONICONS ===== */
 ion-icon{
@@ -44,7 +43,7 @@ textarea:focus, input:focus{
     left: 0;
     width: 100%;
     height: var(--header-height);
-    background: #46887E;
+    background: var(--main-color);
     display: flex;
     justify-content: space-between;
 }
@@ -172,7 +171,7 @@ input[type=text],[type=password]{
 
 label{
     display: block;
-    color: #46887E;
+    color: var(--main-color);
     font-size: 1rem;
     font-weight: bold;
     margin-left: 34%;
