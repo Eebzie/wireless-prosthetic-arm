@@ -4,6 +4,7 @@
   "description": "Website code for capstone prosthetic arm",
   "main": "main.js",
   "dependencies": {
+    "chartjs": "^0.3.24",
     "help": "^3.0.2"
   },
   "devDependencies": {

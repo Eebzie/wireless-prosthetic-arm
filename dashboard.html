@@ -12,6 +12,9 @@
     <!-- ===== IONICONS ===== -->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
+    <!-- ===== CHART.JS ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
     <!-- ===== MAIN JS ===== -->
     <script src="dashboard.js"></script>
 
@@ -55,13 +58,48 @@
         <h1 style="color: #606060; display: flex; justify-content: left;">Good morning, Rachel 🌞</h1>
         <!-- ===== Section 1 ===== -->
         <div class="section-1">
-            <div class="left" ><img src="images/chart-placeholder.jpg" alt="" class="chart"></div>
+            
+            <div class="left" ><canvas id="myChart" class="chart" width="500vw"></div>
             <div class="right">
                 <div class="box box-1"><h1>21°C</h1><span>Finger Temperature Sensor</span></div>
                 <div class="box box-2"><h1>45°C</h1><span>Internal Temperature Sensor</span></div>
             </div>
         </div>
         
+        <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                // The type of chart we want to create
+                type: 'line',
+                
+                // The data for our dataset
+                data: {
+                    labels: ['0:00', '2:00', '4:00', '6:00', '8:00', '10:00',],
+                    datasets: [{
+                        label: 'Average EMG Sensor Data',
+                        borderColor: '#F5B129',
+                        backgroundColor: '#F5B129',
+                        fill: false,
+                        data: [25, 10, 5, 2, 20, 30, 45]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        yAxes: [
+                        {
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Average EMG Amplitude (mV)',
+                            }
+                        }]
+                },
+            },
+        });
+        </script>
         <!-- 
             LEFT: .toggle-btn, .chart, .hr-monitoring-chart, .live-chart
                 JS: grab data and toggle between different views 
