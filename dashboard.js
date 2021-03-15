@@ -13,5 +13,3 @@ const nav = document.querySelector(".nav");
         nav.classList.remove("nav--open");
     });
 });
-
-

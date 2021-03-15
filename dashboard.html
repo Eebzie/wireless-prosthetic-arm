@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="dashboard_styles.css" />
-    <title>Dashboard</title>
+    <link rel="icon" href="images/logo.png">
+    <title>LIMB: Dashboard</title>
   </head>
   <body class="preload">
 
@@ -17,6 +18,7 @@
 
     <!-- ===== MAIN JS ===== -->
     <script src="dashboard.js"></script>
+    <script type="text/javascript" src="tempSens.js"> </script>
 
     <!-- ===== CONTENT ===== -->
     <header class="header">
@@ -61,11 +63,11 @@
             
             <div class="left" ><canvas id="myChart" class="chart" width="500vw"></div>
             <div class="right">
-                <div class="box box-1"><h1>21°C</h1><span>Finger Temperature Sensor</span></div>
-                <div class="box box-2"><h1>45°C</h1><span>Internal Temperature Sensor</span></div>
+                <div class="box box-1"><h1 id="fingerTemp"></h1><span>Finger Temperature Sensor</span></div>
+                <div class="box box-2"><h1 id="internalTemp"></h1><span>Internal Temperature Sensor</span></div>
             </div>
         </div>
-        
+
         <script>
             var ctx = document.getElementById('myChart').getContext('2d');
             var chart = new Chart(ctx, {
@@ -80,7 +82,7 @@
                         borderColor: '#F5B129',
                         backgroundColor: '#F5B129',
                         fill: false,
-                        data: [25, 10, 5, 2, 20, 30, 45]
+                        data: [25, 10, 20, 2, 20, 30, 45]
                     }]
                 },
 
@@ -114,6 +116,7 @@
                 JS: grab data
         -->
     </main>
+    <section></section>
 
     <footer style="display:flex; justify-content: center; padding: 50px">&copy; kneeCAPs 2021</footer>
   </body>

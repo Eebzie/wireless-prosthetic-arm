@@ -1,0 +1,24 @@
+﻿{
+    "sensors": [
+        {
+            "sn": "11111111",
+            "fingSens": "21",
+            "intSens": "23"
+        },
+        {
+            "sn": "11112222",
+            "fingSens": "41",
+            "intSens": "25"
+        },
+        {
+            "sn": "11223344",
+            "fingSens": "71",
+            "intSens": "28"
+        },
+        {
+            "sn": "123",
+            "fingSens": "71",
+            "intSens": "28"
+        }
+    ]
+}
