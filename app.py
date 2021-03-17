@@ -1,0 +1,261 @@
+from flask import Flask, render_template, redirect, url_for, flash, request, session, jsonify, make_response
+from flask_login import LoginManager, UserMixin, login_user, current_user, logout_user, login_required
+from apscheduler.schedulers.background import BackgroundScheduler
+from flask_mysqldb import MySQL
+from flask_mqtt import Mqtt
+from datetime import datetime
+import json
+from time import time
+from random import random
+
+
+app = Flask(__name__)
+
+#set up secret key
+app.secret_key = '>Cqz>o/{oWwU,B0!I>]q'
+
+#set up login manager
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+#set up database
+app.config['MYSQL_HOST'] = "localhost"
+app.config['MYSQL_USER'] = "root"
+app.config['MYSQL_PASSWORD'] = "rootintootin"
+app.config['MYSQL_DB'] = "capstone_db"
+mysql = MySQL(app)
+
+#set up mqtt
+app.config['MQTT_BROKER_URL'] = 'driver.cloudmqtt.com'
+app.config['MQTT_BROKER_PORT'] = 18828
+app.config['MQTT_USERNAME'] = 'aukszoac'
+app.config['MQTT_PASSWORD'] = 'tkKyhEKbPwRh'
+app.config['MQTT_REFRESH_TIME'] = 1.0  # refresh time in seconds
+mqtt = Mqtt(app)
+
+#set up autoclear
+#schedular = BackgroundScheduler()
+#schedule.add_job(func)
+
+class  User(UserMixin):
+    pass
+
+@login_manager.user_loader
+def user_loader(user_id):
+    if user_id != "":
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE email= %s", [user_id])
+        serial_status = cur.fetchone()
+        cur.close()
+        if serial_status:
+            user = User()
+            user.id = user_id
+            return user
+        else: 
+            return
+    else:
+        return
+
+@login_manager.request_loader
+def request_loader(request):
+    email = request.form.get('email')
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM users WHERE email= %s", [email])
+    serial_status = cur.fetchone()
+    cur.close()
+    if serial_status:
+        user = User()
+        user.id = email
+        user.is_authenticated = True
+        return user
+
+    else:
+        return
+
+@mqtt.on_connect()
+def handle_connect(client, userdata, flags, rc):
+    mqtt.subscribe('arduino')
+
+# fix how the data gets stored
+@mqtt.on_message()
+def handle_mqtt_message(client, userdata, message):
+    ValToSend = message.payload.decode()
+    ValToSend = ValToSend.split(";")
+    with app.app_context():
+
+        now = datetime.now() #current date and time
+        date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+
+        cur = mysql.connection.cursor()
+        cur.execute('INSERT INTO datatable VALUES (%s, %s, %s, %s)', (ValToSend[3], ValToSend[2], ValToSend[4], date_time))
+        mysql.connection.commit()
+        cur.execute('UPDATE livedata SET EMG = %s, Temp1 = %s, Temp2 = %s WHERE serialnumber = %s', (ValToSend[2], ValToSend[0], ValToSend[1], ValToSend[3]))
+        mysql.connection.commit()
+        cur.close
+
+@mqtt.on_log()
+def handle_logging(client, userdata, level, buf):
+    print(level, buf)
+
+#def autoclear():
+    #now = datetime.now() #current date and time
+    #date_time = now.strftime("%Y-%m-%d %H:%M:%S")
+
+##########################################################################################
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+##########################################################################################
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == "GET":
+        if current_user.is_anonymous == True:
+            return render_template("login.html")
+        else:
+            return redirect(url_for('protected'))
+    else:
+        email = request.form['email']
+        password = request.form['password']
+        
+        cur = mysql.connection.cursor()
+        cur.execute("SELECT * FROM users WHERE email= %s AND password= %s", (email, password))
+        account = cur.fetchone()
+        cur.close()
+        if account:
+            user = User()
+            user.id = email
+            login_user(user)
+            return redirect(url_for('protected'))
+        else:
+            flash('Email and Password Combination Incorrect')
+            return redirect(url_for('login'))
+
+##########################################################################################
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == "GET":
+        if current_user.is_anonymous != True:
+            return redirect(url_for('protected'))
+        else:
+            session['Serial_Confirmed'] = 0
+            return render_template("register.html")
+    else: #if post request
+        #if no serial number has been confirmed
+        if session['Serial_Confirmed'] == 0: 
+            Serial_Number = request.form['serial-number']
+
+            cur = mysql.connection.cursor()
+            cur.execute("SELECT * FROM serialnumber WHERE serialnumber= %s", [Serial_Number])
+            serial_status = cur.fetchone()
+            #if the serial number is found
+            if serial_status:
+                cur.execute("SELECT taken FROM serialnumber WHERE serialnumber= %s", [Serial_Number])
+                serial_status = cur.fetchone()
+                #if the serial number is not being used
+                if 0 in serial_status:
+                    session['Serial_Confirmed'] = 1 
+                    session['Serial_Number'] = Serial_Number
+                    return render_template('profile-creation.html', Serial_Number=Serial_Number)
+                #if the serial number is being used
+                else:
+                    cur.close
+                    flash('Serial Number Already in Use')
+                    return redirect(url_for('register'))
+            #if the serial number is not found
+            else:
+                cur.close
+                flash('Serial Number Not Valid')
+                return redirect(url_for('register'))
+
+        #if the serial number has been confirmed
+        elif session['Serial_Confirmed'] == 1: 
+            session['Serial_Confirmed'] == 0
+            fullname = request.form['fullname']
+            city = request.form['city']
+            birthday = request.form['birthday']
+            email = request.form['email']
+            password = request.form['password']
+            Serial_Number = session['Serial_Number']
+
+            cur = mysql.connection.cursor()
+            cur.execute('INSERT INTO users VALUES (%s, % s, % s, % s, % s, % s)', (fullname, city, birthday, Serial_Number, email, password))
+            mysql.connection.commit()
+            cur.execute('UPDATE serialnumber SET taken = 1, email = %s WHERE serialnumber = %s', [email, Serial_Number])
+            mysql.connection.commit()
+            cur.execute('UPDATE livedata SET email = %s WHERE serialnumber = %s', [email, Serial_Number])
+            mysql.connection.commit()
+            
+            cur.close()
+
+            session.pop('Serial_Confirmed', None)
+            session.pop('Serial_Number', None)
+            user = User()
+            user.id = email
+            login_user(user)
+            return redirect(url_for('protected'))
+
+##########################################################################################
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+##########################################################################################
+#add name passing
+@app.route('/protected')
+@login_required
+def protected():
+    return render_template("dashboard2.html")
+
+##########################################################################################
+@app.route('/logout')
+@login_required
+def logout():
+    logout_user()
+    flash('You have successfuly logged out')
+    return redirect(url_for('login'))
+
+##########################################################################################
+@login_manager.unauthorized_handler
+def unauthorized_handler():
+    flash('Unauthorized Input')
+    return redirect(url_for('index'))
+
+##########################################################################################
+@app.route('/livegrab', methods=['GET', 'POST'])
+@login_required
+def testgrab():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT EMG, Temp1, Temp2 FROM livedata WHERE email= %s", [current_user.id])
+    #row_headers=[x[0] for x in cur.description]
+    results = cur.fetchone()
+    json_array = ["1", "2", "3"]
+    foo = 0
+    for i in results:
+        json_array[foo] = i
+        foo = foo + 1
+    cur.close
+    #json_data=[]
+    #json_data.append(dict(zip(row_headers,results)))
+
+    response = make_response(json.dumps(json_array))
+
+    response.content_type = 'application/json'
+
+    return response
+    #return json.dumps(json_data)
+
+@app.route('/livegrabhistoric', methods=['GET', 'POST'])
+def fullgrab():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT JSON_ARRAYAGG(EMG) AS 'EMG', JSON_ARRAYAGG(datetime) AS 'Time' FROM datatable WHERE SerialNumber = '11112222'")
+    row_headers=[x[0] for x in cur.description]
+    serial_status = cur.fetchone()
+    cur.close
+    json_data=[]
+    json_data.append(dict(zip(row_headers,serial_status)))
+    return json.dumps(json_data)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+    
