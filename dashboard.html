@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+    <title>LIMB: Dashboard</title>
     <link rel="stylesheet" href="dashboard_styles.css" />
     <link rel="icon" href="images/logo.png">
-    <title>LIMB: Dashboard</title>
+
   </head>
-  <body class="preload">
+  <body class="preload light">
 
     <!-- ===== IONICONS ===== -->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
@@ -37,38 +38,49 @@
                 <ion-icon name="grid-outline"></ion-icon>
                 Dashboard
             </a>
-            <a href="#" class="nav-link">
-                <ion-icon name="accessibility"></ion-icon>
-                Accessibility
-            </a>
-            <a href="#" class="nav-link">
-                <ion-icon name="moon-outline"></ion-icon>
-                Dark Mode
-            </a>
-            <a href="#" class="nav-link">
-                <ion-icon name="help-circle-outline"></ion-icon>
-                Help Center
-            </a>
             <a href="about.html" class="nav-link ">
                 <ion-icon name="information-circle-outline"></ion-icon>
                 About
             </a>
+            <a href="#" class="nav-link">
+                <ion-icon name="accessibility"></ion-icon>
+                Accessibility
+            </a>
+            <a href="#" class="nav-link" onclick="dark_mode_toggle()">
+                <ion-icon name="moon-outline"></ion-icon>
+                Dark Mode
+            </a>
+            <a href="index.html" class="nav-link ">
+                <ion-icon name="log-out-outline"></ion-icon>
+                Logout
+            </a>
         </div>
         <div class="nav-overlay"></div>
     </nav>
-    <main style="padding: 30px 100px;">
-        <h1 style="color: #606060; display: flex; justify-content: left;">Good morning, Rachel 🌞</h1>
-        <!-- ===== Section 1 ===== -->
-        <div class="section-1">
-            
-            <div class="left" ><canvas id="myChart" class="chart" width="500vw"></div>
-            <div class="left" ><canvas id="myChart2" class="chart" width="500vw"></div>
-            <div class="right">
-                <div class="box box-1"><h1 id="fingerTemp"></h1><span>Finger Temperature Sensor</span></div>
-                <div class="box box-2"><h1 id="internalTemp"></h1><span>Internal Temperature Sensor</span></div>
-            </div>
+    <main>
+        <div class="main-container">
+            <h1>Good morning, Rachel 🌞</h1>
+            <!-- ===== Section 1 ===== -->
+            <section class="section-1">
+                <div class="left">
+                    <canvas id="myChart" class="chart">
+                </div>
+                <div class="right">
+                    <div class="temp-box upper-box">
+                        <span>Finger Temperature Sensor</span>
+                        <div id="fingerTemp"></div>
+                    </div>
+                    <div class="temp-box lower-box">
+                        <span>Internal Temperature Sensor</span>
+                        <div id="internalTemp"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- ===== Section 2 ===== -->
+            <section class="section-2">
+                <canvas id="myChart2" class="chart">
+            </section>
         </div>
-
         <script>
             window.onload = function() {
                 console.log('LOADED');
@@ -173,27 +185,6 @@
             }),
         });
 
-        function addData(data) {
-            if(data){
-                liveEMGChart.data.labels.push(new Date());
-                liveEMGChart.data.datasets.forEach((dataset) =>{dataset.data.push(data['EMG'])});
-                if(updateCount > numberElements){
-                    liveEMGChart.data.labels.shift();
-                    liveEMGChart.data.datasets[0].data.shift();
-                }
-                else updateCount++;
-                liveEMGChart.update();
-            }
-        };
-
-    function updateData() {
-        console.log("Update Data");
-        $.getJSON("accelGenerator.php", addData);
-        setTimeout(updateData,updateInterval);
-    }
-
-    updateData();
-
         </script>
         <!-- 
             LEFT: .toggle-btn, .chart, .hr-monitoring-chart, .live-chart
@@ -209,8 +200,6 @@
                 JS: grab data
         -->
     </main>
-    <section></section>
-
-    <footer style="display:flex; justify-content: center; padding: 50px">&copy; kneeCAPs 2021</footer>
+    <footer style="display:flex; justify-content: center;"> Copyright &copy; 2021 kneeCAPs</footer>
   </body>
 </html>

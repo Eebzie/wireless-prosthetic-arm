@@ -71,6 +71,17 @@ nav{
     min-height: 8vh;
 }
 
+.header-button#home-about{
+    color: white;
+    text-decoration: none;
+    align-self: center;
+    font-family: Poppins;
+    padding: 24px;
+}
+
+.header-button#home-about:hover{
+    color: #88AA99;
+}
 /* =============== MAIN CSS FOR CONTENT =============== */
 .logo{
     max-width: 100px;

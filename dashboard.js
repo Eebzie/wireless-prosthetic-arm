@@ -13,3 +13,8 @@ const nav = document.querySelector(".nav");
         nav.classList.remove("nav--open");
     });
 });
+
+function dark_mode_toggle() {
+    document.body.classList.toggle("light");
+    document.body.classList.toggle("dark");
+ }
