@@ -60,7 +60,6 @@ body{
     --header-height: 50px;
     margin: var(--header-height) 0 0 0;
     height: 100vh;
-    overflow: hidden;
     font-family: 'Open Sans', sans-serif;
     background: var(--bg-body);
     color: var(--color-txt);
@@ -93,7 +92,7 @@ body{
 .header-button#logoNav{
     width: 30px;
     padding: 12px;
-    box-sizing:initial;
+    box-sizing: initial;
 }
 
 .nav-links {
@@ -167,7 +166,13 @@ body{
 
 /* =============== MAIN CSS FOR CONTENT =============== */
 main{
-    padding: 30px 100px;
+    padding: 30px 10vh;
+}
+
+@media (max-width: 1000px){
+    main{
+        padding: 30px 5vh;
+    }
 }
 
 .main-container{
@@ -190,9 +195,11 @@ section{
     display: flex;
     justify-content: space-evenly;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .section-1 > .left{
+    width: 100%;
     flex-basis: 75%;
 }
 
@@ -202,6 +209,7 @@ section{
     justify-content: space-between;
     flex-basis: 25%;
     gap: 20px;
+    flex: 4;
 }
 
 .temp-box {
