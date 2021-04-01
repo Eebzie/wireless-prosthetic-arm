@@ -73,9 +73,9 @@ textarea:focus, input:focus{
 /* =============== BASE CSS FOR HEADER AND NAV BAR =============== */
 h1{
     font-weight: bold;
-    font-size: 64px;
+    font-size: 38px;
     line-height: 75px;
-    color: #3A3335;
+    color: var(--color-txt);
 }
 
 /* Navigation */
@@ -280,10 +280,6 @@ p#serial-number{
     font-size: 30px;
 }
 
-.about-header{
-    font-size: 64px;
-}
-
 p.about-description, p.member-title{
     font-family: 'Roboto', sans-serif;
 }
@@ -321,25 +317,21 @@ button.button-block, .button-block{
 }
 
 /*team*/
-.team-section{
-    margin-top: 2%;
-    font-size: 30px;
-    line-height: 42px;
-    margin-left: 10%;
-    margin-right: 10%;
-}
-
 .team-members{
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
 }
 
-.member-info{
+.member{
     text-align: center;
     margin-left: 5%;
     margin-right: 5%; 
     margin-top: 1%
 }
+
 .headshot{
     border-radius: 50%;
     width: 200px;
