@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="images/logo.png">
     
 </head>
-<body>
+<body class="preload light">
     <!-- ===== IONICONS ===== -->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
@@ -22,23 +23,25 @@
     </header>
 
     <main>
-    <div class="logo-welcome-message">
-        <a href="index.html" title="Returns you to welcome page"><img src="images/logo.png" alt="LIMB logo" class="logo"></a>
-        <h1 class="main-header">Welcome to LIMB!</h1>
-    <!-- <h2 class="sub-header">Please enter your serial number</h2>--> 
-    </div>
-    
-    <div class="button-container">
-        <form action="profile-creation.html">
-            <label for="serial-number">SERIAL NUMBER</label>
-            <div class="serial-number-form">
-                <input type="text" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++" required> 
-                <button class="button button-block register">REGISTER</button>
-            <!-- <a href="#" class="button button-block register">REGISTER</a>-->
-            <!--- REGISTER button must validate whether or not S/N exists in the database-->
+        <div class="main-container">
+            <div class="logo-welcome-message">
+                <a href="index.html" title="Returns you to welcome page"><img src="images/logo.png" alt="LIMB logo" class="logo"></a>
+                <h1 class="main-header">Register your LIMB product</h1>
+            <!-- <h2 class="sub-header">Please enter your serial number</h2>--> 
             </div>
-        </form>
-    </div>
+            
+            <div class="button-container">
+                <form action="profile-creation.html">
+                    <label for="serial-number">SERIAL NUMBER</label>
+                    <div class="serial-number-form">
+                        <input type="text" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++" required> 
+                        <button class="button button-block register">REGISTER</button>
+                    <!-- <a href="#" class="button button-block register">REGISTER</a>-->
+                    <!--- REGISTER button must validate whether or not S/N exists in the database-->
+                    </div>
+                </form>
+            </div>
+        </div>
     </main>
 </body>
 </html>

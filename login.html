@@ -7,9 +7,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="images/logo.png">
     
 </head>
-<body>
+<body class="preload light">
   <!-- ===== IONICONS ===== -->
   <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
@@ -21,18 +22,20 @@
     <a href="index.html"><img src="images/LIMBlogo.svg" class="header-button" id="logoNav" alt="LIMB logo"></a>
   </header>
   <main>
-    <div class="logo-welcome-message">
-      <a href="index.html"><img src="images/logo.png" alt="LIMB logo" class="logo"></a>
-      <h1 class="main-header">Welcome to LIMB!</h1>
-      <h2 class="sub-header"></h2>
-  </div>
-  <div class="button-container">
-    <label for="email">EMAIL</label>
-      <input type="text" id="email" name="email" placeholder="Enter Email">
-    <label for="password">PASSWORD</label>
-      <input type="password" id="password" name="password" placeholder="Enter Password">
-    <a href="#" class="button button-block login">LOGIN</a>
-  </div>
+    <div class="main-container">
+      <div class="logo-welcome-message">
+        <a href="index.html"><img src="images/logo.png" alt="LIMB logo" class="logo"></a>
+        <h1 class="main-header">Login to you LIMB account</h1>
+        <h2 class="sub-header"></h2>
+      </div>
+      <div class="button-container">
+        <label for="email">EMAIL</label>
+          <input type="text" id="email" name="email" placeholder="Enter Email">
+        <label for="password">PASSWORD</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password">
+        <a href="#" class="button button-block login">LOGIN</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
