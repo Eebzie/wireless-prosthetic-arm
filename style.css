@@ -91,6 +91,7 @@ textarea:focus, input:focus{
 .header-button#logoNav{
     width: 25px;
     padding: 12px;
+    box-sizing: initial;
 }
 
 nav{
@@ -105,7 +106,8 @@ nav{
     text-decoration: none;
     align-self: center;
     font-family: Poppins;
-    padding: 24px;
+    padding-right: 48px;
+    white-space: nowrap;
 }
 
 .header-button#home-about:hover{
@@ -123,6 +125,10 @@ main{
     display: flex;
     flex-direction: column;
     font-family: Montserrat, sans-serif;
+}
+
+.full{
+    height: 78vh;
 }
 
 .logo{
