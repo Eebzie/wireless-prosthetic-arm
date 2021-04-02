@@ -74,7 +74,6 @@ textarea:focus, input:focus{
 h1{
     font-weight: bold;
     font-size: 38px;
-    line-height: 75px;
     color: var(--color-txt);
 }
 
@@ -186,9 +185,17 @@ main{
     z-index: 10;
 }
 
-@media (max-width: 1000px){
+.full{
+    height: 78vh;
+}
+
+@media screen and (max-width: 1000px){
     main{
         padding: 30px 5vh;
+    }
+    .creation-pic{
+        position: absolute;
+        opacity: 0;
     }
 }
 
@@ -201,36 +208,48 @@ main{
     font-family: Montserrat, sans-serif;
 }
 
-
-    /* ===== CREATION PAGE ===== */
-.creation-container{
+.shadow{
     box-shadow: 5px 6px 20px 4px rgba(0, 0, 0, 0.09);
-    justify-content: space-between;
+}
+    /* ===== CREATION PAGE ===== */
+.content-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
 }
 
-.profilepic-default{
-    position: absolute;
+.creation-pic{
+    width: 75vh;
+    height: auto;
     z-index: 0;
 }
 
-.creation-input{
-    margin-top: 10%;
-    padding-right: 130px;
+form{
     z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: right;
+}
+
+.creation-input{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 20px;
 }
 
 .block{
-    margin-bottom: 10px;
+    display: flex;
+    gap: 30px;
 }
 
 info-types{
     font-weight: bold;
     font-size: 35px;
     display: inline-block;
-    width:400px;
     text-align: right;
-    color: #3A3335;
-    margin-right: 30px;
+    color: var(--color-txt);
 }
 
 .input-box[type=text], .input-box[type=password], .input-box[type=date]{
@@ -240,16 +259,16 @@ info-types{
     border: 2px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 75px; 
-    padding-right: 20px;
-    padding-left: 20px;   
+    padding: 0 20px;
 }
 
 p#serial-number{
     display: inline;
     width: 300px;
     font-size: 30px;
+    font-weight: bold;
     color: #444444;
-
+    margin: 0;
 }
 /* Creation Button */
 .button-create{
@@ -339,14 +358,16 @@ button.button-block, .button-block{
 
 .member-name, .member-title{
     margin: 0;
-    border: border
+
 }
 .member-name{
     font-weight: bold;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 24px;
+    text-align: center;
 }
 .member-title{
     font-weight: normal;
-    font-size: 25px;
+    font-size: 20px;
+    text-align: center;
+
 }
