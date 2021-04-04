@@ -30,11 +30,13 @@
         <h2 class="sub-header"></h2>
       </div>
       <div class="input-container">
-        <label for="email">EMAIL</label>
-          <input type="text" id="email" name="email" placeholder="Enter Email">
-        <label for="password">PASSWORD</label>
-          <input type="password" id="password" name="password" placeholder="Enter Password">
-        <a href="#" class="button-block login">LOGIN</a>
+        <form action="#" method="POST">
+          <label for="email">EMAIL</label>
+            <input type="text" id="email" name="email" placeholder="Enter Email">
+          <label for="password">PASSWORD</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password">
+          <a href="{{url_for('login')}}" class="button-block login">LOGIN</a>
+        </form>
       </div>
     </div>
   </main>
