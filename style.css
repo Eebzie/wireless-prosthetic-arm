@@ -17,7 +17,14 @@
     --dark-txt-hover: #099578;
     --light-box-hover: #eeeeee;
     --dark-box-hover: #1f191b;
+    --font-size-h1-default: 32px;
+    --font-size-h1-large: 38px;
+    --font-size-secondary-default: 24px;
+    --font-size-secondary-large: 30px;
+    --font-size-p-default: 20px;
+    --font-size-p-large: 24px;
 }
+
 
 .dark {
     --bg-body: var(--dark-body);
@@ -37,6 +44,18 @@
     --color-txt-hover: var(--light-txt-hover);
     --color-box-hover: var(--light-box-hover);
     --box-color: #fafafa;
+}
+
+.default-font-mode {
+    --font-size-h1: var(--font-size-h1-default);
+    --font-size-p: var(--font-size-p-default);
+    --font-size-secondary: var(--font-size-secondary-default);
+}
+
+.large-font-mode {
+    --font-size-h1: var(--font-size-h1-large);
+    --font-size-p: var(--font-size-p-large);
+    --font-size-secondary: var(--font-size-secondary-large);
 }
 
 /* ===== IONICONS ===== */
@@ -82,10 +101,10 @@ textarea:focus, input:focus{
     flex-shrink: 0;
 
     /* Removing default button styling */
-    background: none;
+    cursor: pointer;
     outline: none;
     border: none;
-    cursor: pointer;
+    background: none;
 }
 
 .header-button#logoNav{
@@ -115,7 +134,7 @@ nav{
 }
 /* =============== MAIN CSS FOR CONTENT =============== */
 main{
-    padding: 30px 10vh;
+    padding: 2.5vh 20vh;
 }
 
 .main-container{
@@ -128,7 +147,7 @@ main{
 }
 
 .full{
-    height: 78vh;
+    height: 75vh;
 }
 
 @media screen and (max-width: 1000px){
@@ -146,33 +165,32 @@ main{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 7.5%;
+    margin-top: 6%;
 }
 
 .logo-welcome-message{
     text-align: center;
     margin-bottom: 2.5%;
 }
+
 .main-header{
     text-align: center;
 }
+
 .sub-header{
     text-align: center;
     font-size: 1rem;
-   /*  text-transform: uppercase;
-        color: #46887E; */
 }
 
-button{
-    outline: none;
-    border: none;
-    font-family: inherit;
-    font-size: 100%;
-    width: 30%;
-    margin: 0;
+.input-container{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 30vh;
+    gap: 20px;
 }
 
-button.button-block, .button-block{
+button.button-block, a.button-block{
     background-color: #F5B129;
     color:#ffffff;
     border-radius: 25px;
@@ -180,15 +198,16 @@ button.button-block, .button-block{
     font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    text-decoration:none;
+    width: 100%;
     text-shadow:0px 1px 0px #000000;
-    display:block;
-    cursor:pointer;
 	padding: 15px 15px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 10px;
-    width: 31.5%;
+    
+    /* Removing default button and link styling */
+    cursor: pointer;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    margin: 0;
 }
 
 .button-block:hover {
@@ -197,9 +216,26 @@ button.button-block, .button-block{
 
 .button-block:active {
 	position:relative;
-	top:1px;
+	top: 1px;
 }
 
+/* ===== REGISTER PAGE ===== */
+label{
+    color: var(--main-color);
+    font-size: 1rem;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+#serial-number{
+    font-weight: bold;
+}
+
+#register{
+    width: 110%;
+}
+
+/* ===== LOGIN PAGE ===== */
 input[type=text],[type=password]{
     border-radius: 25px;
     border: white;
@@ -207,24 +243,12 @@ input[type=text],[type=password]{
     font-size: 1rem;
     letter-spacing: 0.5rem;
     text-align: center;
-    text-decoration:none;
-    display:block;
-    cursor:pointer;
-    width: 30%;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
     padding: 15px 15px;
-    margin-left: auto;
-    margin-right: auto;
     margin-bottom: 10px;
-}
-
-.serial-number-form{
-    display: flexbox;
-    flex-direction: column;
-
-}
-
-#serial-number{
-    font-weight: bold;
+    width: 100%;
 }
 
 #email{
@@ -237,11 +261,3 @@ input[type=text],[type=password]{
     text-align: left;
 }
 
-label{
-    display: block;
-    color: var(--main-color);
-    font-size: 1rem;
-    font-weight: bold;
-    margin-left: 34%;
-    padding-bottom: 5px;
-}

@@ -186,7 +186,7 @@ body{
 
 /* =============== MAIN CSS FOR CONTENT =============== */
 main{
-    padding: 30px 10vh;
+    padding: 3vh 20vh;
 }
 
 @media (max-width: 1000px){

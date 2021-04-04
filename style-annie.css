@@ -191,15 +191,11 @@ textarea:focus, input:focus{
 /* =============== MAIN CSS FOR CONTENT =============== */
 /* Creation Section */
 main{
-    padding: 30px 10vh;
+    padding: 3vh 20vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
     z-index: 10;
-}
-
-.full{
-    height: 78vh;
 }
 
 @media screen and (max-width: 1000px){
@@ -230,16 +226,18 @@ h1{
     font-weight: bold;
     color: var(--color-txt);
 }
-    /* ===== CREATION PAGE ===== */
+
+/* ===== CREATION PAGE ===== */
 .content-container{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
+    justify-content: space-evenly;
+    margin: 2.5vh;
+    padding: 2.5vh;
 }
 
 .creation-pic{
-    width: 75vh;
+    width: 65vh;
     height: auto;
     z-index: 0;
 }
@@ -313,53 +311,55 @@ p#serial-number{
 	background-color:#228777;
 }
 
-    /* ===== ABOUT PAGE ===== */
+/* ===== ABOUT PAGE ===== */
 /* About Buttons */
-button.button-block, .button-block{
+button.button-block, a.button-block{
     background-color: #F5B129;
-    color: white;
-    border-radius: 32px;
+    color:#ffffff;
+    border-radius: 25px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    font-size: var(--font-size-secondary);
+    font-size: 1rem;
     font-weight: bold;
     text-align: center;
-    text-decoration:none;
+    width: 100%;
     text-shadow:0px 1px 0px #000000;
-    display:block;
-    cursor:pointer;
-	padding: 20px 30px;
-    margin-top: 30px;
-    width: 35%;
-
-
+	padding: 15px 15px;
+    
+    /* Removing default button and link styling */
+    cursor: pointer;
     outline: none;
     border: none;
-    cursor: pointer;
-}
-.button-about:hover {
-	background-color:#DB960A;
-}
-.button-container{
-    padding-left: 30%;
-    padding-right: 30%;
-    display: flex;
-    justify-content: space-between;
+    text-decoration: none;
+    margin: 0;
 }
 
-/*team*/
+.button-block:hover {
+	background-color:#DB960A;
+}
+
+.button-block:active {
+	position:relative;
+	top: 1px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 30vh;
+    gap: 30px;
+}
+
+/* Team Section */
 .team-members{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    gap: 20px;
 }
 
 .member{
     text-align: center;
-    margin-left: 5%;
-    margin-right: 5%; 
-    margin-top: 1%
+    margin: 1% 5%;
 }
 
 .headshot{
