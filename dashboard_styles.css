@@ -17,7 +17,14 @@
     --dark-txt-hover: #099578;
     --light-box-hover: #eeeeee;
     --dark-box-hover: #1f191b;
+    --font-size-h1-default: 32px;
+    --font-size-h1-large: 38px;
+    --font-size-secondary-default: 24px;
+    --font-size-secondary-large: 30px;
+    --font-size-p-default: 20px;
+    --font-size-p-large: 24px;
 }
+
 
 .dark {
     --bg-body: var(--dark-body);
@@ -37,6 +44,18 @@
     --color-txt-hover: var(--light-txt-hover);
     --color-box-hover: var(--light-box-hover);
     --box-color: #fafafa;
+}
+
+.default-font-mode {
+    --font-size-h1: var(--font-size-h1-default);
+    --font-size-p: var(--font-size-p-default);
+    --font-size-secondary: var(--font-size-secondary-default);
+}
+
+.large-font-mode {
+    --font-size-h1: var(--font-size-h1-large);
+    --font-size-p: var(--font-size-p-large);
+    --font-size-secondary: var(--font-size-secondary-large);
 }
 
 /* ===== IONICONS ===== */
@@ -61,6 +80,7 @@ body{
     margin: var(--header-height) 0 0 0;
     height: 100vh;
     font-family: 'Open Sans', sans-serif;
+    font-size: var(--font-size--default);
     background: var(--bg-body);
     color: var(--color-txt);
 }
@@ -184,6 +204,10 @@ main{
     font-family: Montserrat, sans-serif;
 }
 
+h1{
+    font-size: var(--font-size-h1);
+}
+
 section{
     padding-top: 50px;
     width: 100%;
@@ -230,8 +254,10 @@ section{
 .temp-box span {
     font-family: Roboto, sans-serif;
     display: inline;
+    font-size: var(--font-size-secondary);
     font-weight: bold;
 }
+
 .dark .temp-box span {
     display: inline;
     font-weight: lighter;
@@ -244,7 +270,7 @@ section{
 
 #fingerTemp, #internalTemp{
     color: #339183;
-    font-size: 3.5em;
+    font-size: 3em;
     text-align: center;
     padding-top: 15px;
 }

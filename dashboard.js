@@ -26,3 +26,9 @@ function dark_mode_toggle() {
     document.body.classList.toggle("light");
     document.body.classList.toggle("dark");
  }
+
+// Font Size Toggle
+ function switchFont() {
+    document.body.classList.toggle("default-font-mode");
+    document.body.classList.toggle("large-font-mode");
+}

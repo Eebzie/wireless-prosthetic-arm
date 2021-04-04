@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style-annie.css"/>
     <link rel="icon" href="images/logo.png">
 </head>
-<body class="preload light">
+<body class="preload light default-font-mode">
     <!-- ===== IONICONS ===== -->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
@@ -24,10 +24,6 @@
     </header>
     <nav class="nav">
         <div class="nav-links">
-            <!-- Insert profile picture here -->
-            <div>
-                <!-- Insert profile picture here -->
-            </div>
             <a href="dashboard.html" class="nav-link">
                 <ion-icon name="grid-outline"></ion-icon>
                 Dashboard
@@ -36,9 +32,9 @@
                 <ion-icon name="information-circle-outline"></ion-icon>
                 About
             </a>
-            <a href="#" class="nav-link">
+            <a href="#" class="nav-link" onclick="switchFont()">
                 <ion-icon name="accessibility"></ion-icon>
-                Accessibility
+                Font Size
             </a>
             <a href="#" class="nav-link" onclick="dark_mode_toggle()">
                 <ion-icon name="moon-outline"></ion-icon>
@@ -55,7 +51,16 @@
         <div class="main-container">
             <div class="about-blurb">
                 <h1 class="about-header">About LIMB</h1>
-                <p class="about-description">LIMB is a wireless arm prosthetic with wireless monitoring capabilities. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ullamcorper, diam sed sollicitudin porttitor, nulla magna porta orci, fringilla lacinia sem orci eu sapien. Aliquam risus nisl, vehicula nec mollis a, congue eget est. Sed luctus quam at purus mollis maximus. Sed eu arcu in eros bibendum tempus ac quis nunc.</p>
+                <p class="about-description">The objective of the project is to design and develop a microprocessor-controlled (MCU) 
+                    prosthetic arm with a remote monitoring web app for below the elbow limb loss. The website application allows users 
+                    to access their past EMG data and see live EMG data as well. We also added 2 temperature sensors to allow users to 
+                    know the internal temperature of their arm to ensure it is functioning properly and an external temperature sensor to 
+                    mimic human touch capabilities. Below we have linked our GitHub and final report that provides greater insight in our 
+                    how we completed this project.
+                </p>
+                <p class="about-description">
+                    We are grateful to have been given the opportunity to apply what we have learned in our biomedical engineering program to this final project before graduating in April 2021.</p>
+                </p>
             </div>
             <div class=button-container>
                 <a href="#" class="button-block" title="Redirects to PDF document">Manual (PDF)</a>
@@ -95,5 +100,6 @@
             </div>
         </div>
     </main>
+    <footer style="display:flex; justify-content: center;"> Copyright &copy; 2021 kneeCAPs</footer>
 </body>
 </html>

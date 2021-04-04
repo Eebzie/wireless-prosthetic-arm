@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 
 /*===== VARIABLES CSS =====*/
+/*===== VARIABLES CSS =====*/
 :root{
     /*===== Colours =====*/
     --light-main: #55887e;
@@ -17,7 +18,14 @@
     --dark-txt-hover: #099578;
     --light-box-hover: #eeeeee;
     --dark-box-hover: #1f191b;
+    --font-size-h1-default: 32px;
+    --font-size-h1-large: 38px;
+    --font-size-secondary-default: 24px;
+    --font-size-secondary-large: 30px;
+    --font-size-p-default: 20px;
+    --font-size-p-large: 24px;
 }
+
 
 .dark {
     --bg-body: var(--dark-body);
@@ -37,6 +45,18 @@
     --color-txt-hover: var(--light-txt-hover);
     --color-box-hover: var(--light-box-hover);
     --box-color: #fafafa;
+}
+
+.default-font-mode {
+    --font-size-h1: var(--font-size-h1-default);
+    --font-size-p: var(--font-size-p-default);
+    --font-size-secondary: var(--font-size-secondary-default);
+}
+
+.large-font-mode {
+    --font-size-h1: var(--font-size-h1-large);
+    --font-size-p: var(--font-size-p-large);
+    --font-size-secondary: var(--font-size-secondary-large);
 }
 
 /* ===== IONICONS ===== */
@@ -71,13 +91,6 @@ textarea:focus, input:focus{
 }
 
 /* =============== BASE CSS FOR HEADER AND NAV BAR =============== */
-h1{
-    font-weight: bold;
-    font-size: 38px;
-    color: var(--color-txt);
-}
-
-/* Navigation */
 .header{
     position: fixed;
     top: 0;
@@ -211,6 +224,12 @@ main{
 .shadow{
     box-shadow: 5px 6px 20px 4px rgba(0, 0, 0, 0.09);
 }
+
+h1{
+    font-size: var(--font-size-h1);
+    font-weight: bold;
+    color: var(--color-txt);
+}
     /* ===== CREATION PAGE ===== */
 .content-container{
     display: flex;
@@ -295,21 +314,13 @@ p#serial-number{
 }
 
     /* ===== ABOUT PAGE ===== */
-.about-blurb{
-    font-size: 30px;
-}
-
-p.about-description, p.member-title{
-    font-family: 'Roboto', sans-serif;
-}
-
 /* About Buttons */
 button.button-block, .button-block{
     background-color: #F5B129;
     color: white;
     border-radius: 32px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
-    font-size: 25px;
+    font-size: var(--font-size-secondary);
     font-weight: bold;
     text-align: center;
     text-decoration:none;
@@ -356,18 +367,20 @@ button.button-block, .button-block{
     width: 200px;
 }
 
+p.about-description, p.member-title{
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-size-p);
+}
+
 .member-name, .member-title{
     margin: 0;
-
 }
 .member-name{
     font-weight: bold;
-    font-size: 24px;
+    font-size: var(--font-size-secondary);
     text-align: center;
 }
 .member-title{
     font-weight: normal;
-    font-size: 20px;
     text-align: center;
-
 }
