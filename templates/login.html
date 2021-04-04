@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Screen</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="icon" href="{{url_for('static', filename='images/logo.png')}}">
+    
+</head>
+<body class="preload light">
+  <!-- ===== IONICONS ===== -->
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+  <!-- ===== MAIN JS ===== -->
+  <!-- N/A -->
+
+  <!-- ===== CONTENT ===== -->
+  <header class="header">
+    <a href="{{url_for('index')}}" title="Returns you to welcome page"><img src="{{url_for('static', filename='images/LIMBlogo.svg')}}" class="header-button" id="logoNav" alt="LIMB logo"></a>
+    <a href="homeAbout.html" class="header-button" id="home-about">About LIMB</a>
+</header>
+  <main>
+    <div class="main-container full">
+      <div class="logo-welcome-message">
+        <a href="{{url_for('index')}}"><img src="{{url_for('static', filename='images/logo.png')}}" alt="LIMB logo" class="logo"></a>
+        <h1 class="main-header">Login to you LIMB account</h1>
+        <h2 class="sub-header"></h2>
+      </div>
+      <div class="input-container">
+        <label for="email">EMAIL</label>
+          <input type="text" id="email" name="email" placeholder="Enter Email">
+        <label for="password">PASSWORD</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password">
+        <a href="#" class="button-block login">LOGIN</a>
+      </div>
+    </div>
+  </main>
+  <footer style="display:flex; justify-content: center;"> Copyright &copy; 2021 kneeCAPs</footer>
+</body>
+</html>

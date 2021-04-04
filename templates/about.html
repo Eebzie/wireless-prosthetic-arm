@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style-annie.css')}}"/>
+    <link rel="icon" href="{{url_for('static', filename='images/logo.png')}}">
+</head>
+<body class="preload light default-font-mode">
+    <!-- ===== IONICONS ===== -->
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- ===== MAIN JS ===== -->
+    <script src="{{url_for('static', filename='js/dashboard.js')}}"></script>
+
+    <!-- ===== CONTENT ===== -->
+    <header class="header">
+        <a href="{{url_for('protected')}}" title="Return to the Dashboard"><img src="{{url_for('static', filename='images/LIMBlogo.svg')}}" class="header-button" id="logoNav" alt="LIMB logo" ></a>
+        <button class="header-button" id="btnNav" type="button">
+            <ion-icon name="person-circle-sharp"></ion-icon>      
+        </button>
+    </header>
+    <nav class="nav">
+        <div class="nav-links">
+            <a href="{{url_for('protected')}}" class="nav-link">
+                <ion-icon name="grid-outline"></ion-icon>
+                Dashboard
+            </a>
+            <a href="{{url_for('about')}}" class="nav-link">
+                <ion-icon name="information-circle-outline"></ion-icon>
+                About
+            </a>
+            <a href="#" class="nav-link" onclick="switchFont()">
+                <ion-icon name="accessibility"></ion-icon>
+                Font Size
+            </a>
+            <a href="#" class="nav-link" onclick="dark_mode_toggle()">
+                <ion-icon name="moon-outline"></ion-icon>
+                Dark Mode
+            </a>
+            <a href="{{url_for('logout')}}" class="nav-link">
+                <ion-icon name="log-out-outline"></ion-icon>
+                Logout
+            </a>
+        </div>
+        <div class="nav-overlay"></div>
+    </nav>
+    <main>
+        <div class="main-container">
+            <div class="about-blurb">
+                <h1 class="about-header">About LIMB</h1>
+                <p class="about-description">The objective of the project is to design and develop a microprocessor-controlled (MCU) 
+                    prosthetic arm with a remote monitoring web app for below the elbow limb loss. The website application allows users 
+                    to access their past EMG data and see live EMG data as well. We also added 2 temperature sensors to allow users to 
+                    know the internal temperature of their arm to ensure it is functioning properly and an external temperature sensor to 
+                    mimic human touch capabilities. Below we have linked our GitHub and final report that provides greater insight in our 
+                    how we completed this project.
+                </p>
+                <p class="about-description">
+                    We are grateful to have been given the opportunity to apply what we have learned in our biomedical engineering program to this final project before graduating in April 2021.</p>
+                </p>
+            </div>
+            <div class="button-container">
+                <a href="https://docs.google.com/document/d/1K4G-aCWg2DUdFMapsuXXjqyCKx_NSv7f7zlvCx2AfpA/edit?usp=sharing" class="button button-block" title="Redirects to PDF document">User Manual</a>
+                <a href="https://linktr.ee/limbprosthetic" class="button button-block" title="Redirects to Support page">Support</a>
+                <a href="https://github.com/Eebzie/wireless-prosthetic-arm" class="button button-block " title="Redirects to GitHub repo">GitHub</a>
+                <a href="#" class="button button-block " title="Login with an existing account">Report</a>
+            </div>
+        </div>
+        <div class="main-container"> 
+            <div class="team-section">
+                <h1>Meet the Team</h1>
+                <div class="team-members">
+                    <div class="member">
+                        <a href="https://www.linkedin.com/in/annieysyang/"><img class="headshot" src="{{url_for('static', filename='images/Annie.png')}}" alt="Picture of Annie Yang"></a>
+                        <p class="member-name">Annie Yang</p>
+                        <p class="member-title">Frontend Developer</p>
+                    </div>
+                    <div class="member">
+                        <a href="https://www.linkedin.com/in/gabrielle-agustin/"><img class="headshot" src="{{url_for('static', filename='images/Gabby.png')}}" alt="Picture of Gabby Agustin"></a>
+                        <p class="member-name">Gabby Agustin</p>
+                        <p class="member-title">Frontend Developer</p>
+                    </div>
+                    <div class="member">
+                        <a href="https://www.linkedin.com/in/sam-mirshahi/"><img class="headshot" src="{{url_for('static', filename='images/Sam.png')}}" alt="Picture of Sam Mirshai"></a>
+                        <p class="member-name">Sam Mirshahi</p>
+                        <p class="member-title">Backend Developer</p>
+                    </div>
+                    <div class="member">
+                        <a href="https://www.linkedin.com/in/serenacorrea/"><img class="headshot" src="{{url_for('static', filename='images/Serena.png')}}" alt="Picture of Serena Correa"></a>
+                        <p class="member-name">Serena Correa</p>
+                        <p class="member-title">Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer style="display:flex; justify-content: center;"> Copyright &copy; 2021 kneeCAPs</footer>
+</body>
+</html>
