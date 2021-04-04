@@ -94,6 +94,7 @@ textarea:focus, input:focus{
     background: var(--bg-main);
     display: flex;
     justify-content: space-between;
+    z-index: 2;
 }
 
 .header-button, a .header-button{
@@ -144,6 +145,7 @@ main{
     display: flex;
     flex-direction: column;
     font-family: Montserrat, sans-serif;
+    z-index: 0;
 }
 
 .full{
