@@ -135,7 +135,19 @@ nav{
 }
 /* =============== MAIN CSS FOR CONTENT =============== */
 main{
-    padding: 2.5vh 20vh;
+    padding: 3vh 10vh;
+}
+
+@media screen and (max-width: 768px){
+    main{
+        padding: 30px 5vh;
+    }
+}
+
+@media screen and (max-width: 425px){
+    main{
+        padding: 30px 2vh;
+    }
 }
 
 .main-container{

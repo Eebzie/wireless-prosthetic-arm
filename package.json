@@ -5,6 +5,7 @@
   "main": "main.js",
   "dependencies": {
     "chartjs": "^0.3.24",
+    "ecstatic": "^4.1.4",
     "help": "^3.0.2"
   },
   "devDependencies": {
