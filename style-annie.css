@@ -191,20 +191,49 @@ textarea:focus, input:focus{
 /* =============== MAIN CSS FOR CONTENT =============== */
 /* Creation Section */
 main{
-    padding: 3vh 20vh;
+    padding: 3vh 10vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
     z-index: 10;
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1068px){
     main{
         padding: 30px 5vh;
     }
     .creation-pic{
         position: absolute;
+        overflow: hidden;
         opacity: 0;
+    }
+    .button-block{
+        border-radius: 50px;
+    }
+    .team-members{
+        gap: 68px;
+    }
+    
+}
+
+@media screen and (max-width: 768px){
+    main{
+        padding: 30px 2vh;
+    }
+    .main-container{
+        overflow: hidden;
+    }
+    .button-container{
+        flex-wrap: wrap;
+    }
+    .button-block{
+        border-radius: 50px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    main{
+        padding: 30px 2vh;
     }
 }
 
@@ -215,6 +244,7 @@ main{
     display: flex;
     flex-direction: column;
     font-family: Montserrat, sans-serif;
+    overflow: hidden;
 }
 
 .shadow{
@@ -324,7 +354,7 @@ button.button-block, a.button-block{
     width: 100%;
     text-shadow:0px 1px 0px #000000;
 	padding: 15px 15px;
-    
+        
     /* Removing default button and link styling */
     cursor: pointer;
     outline: none;
@@ -345,8 +375,7 @@ button.button-block, a.button-block{
 .button-container{
     display: flex;
     justify-content: space-around;
-    margin: 30px 30vh;
-    gap: 30px;
+    gap: 20px;
 }
 
 /* Team Section */
@@ -355,6 +384,7 @@ button.button-block, a.button-block{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    gap: 20px;
 }
 
 .member{
