@@ -5,19 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
-    <link rel="stylesheet" href="style-annie.css"/>
-    <link rel="icon" href="images/logo.png">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style-annie.css')}}"/>
+    <link rel="icon" href="{{url_for('static', filename='images/logo.png')}}">
 </head>
 <body class="preload light default-font-mode">
     <!-- ===== IONICONS ===== -->
     <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
 
     <!-- ===== MAIN JS ===== -->
-    <script src="dashboard.js"></script>
+    <script src="{{url_for('static', filename='js/dashboard.js')}}"></script>
 
     <!-- ===== CONTENT ===== -->
     <header class="header">
-        <a href="index.html" title="Return to the Welcome Page"><img src="images/LIMBlogo.svg" class="header-button" id="logoNav" alt="LIMB logo" ></a>
+        <a href="{{url_for('index')}}" title="Return to the Welcome Page"><img src="{{url_for('static', filename='images/LIMBlogo.svg')}}" class="header-button" id="logoNav" alt="LIMB logo" ></a>
     </header>
 
     <main>
@@ -31,7 +31,7 @@
                     mimic human touch capabilities. Below we have linked our GitHub and final report that provides greater insight in our 
                     how we completed this project.
                 </p>
-                <p class="about-description">z
+                <p class="about-description">
                     We are grateful to have been given the opportunity to apply what we have learned in our biomedical engineering program to this final project before graduating in April 2021.</p>
                 </p>
             </div>
@@ -47,22 +47,22 @@
                 <h1>Meet the Team</h1>
                 <div class="team-members">
                     <div class="member-info">
-                        <a href="https://www.linkedin.com/in/annieysyang/"><img class="headshot" src="images/Annie.png" alt="Picture of Annie Yang"></a>
+                        <a href="https://www.linkedin.com/in/annieysyang/"><img class="headshot" src="{{url_for('static', filename='images/Annie.png')}}" alt="Picture of Annie Yang"></a>
                         <p class="member-name">Annie Yang</p>
                         <p class="member-title">Frontend Developer</p>
                     </div>
                     <div class="member-info">
-                        <a href="https://www.linkedin.com/in/gabrielle-agustin/"><img class="headshot" src="images/Gabby.png" alt="Picture of Gabby Agustin"></a>
+                        <a href="https://www.linkedin.com/in/gabrielle-agustin/"><img class="headshot" src="{{url_for('static', filename='images/Gabby.png')}}" alt="Picture of Gabby Agustin"></a>
                         <p class="member-name">Gabby Agustin</p>
                         <p class="member-title">Frontend Developer</p>
                     </div>
                     <div class="member-info">
-                        <a href="https://www.linkedin.com/in/sam-mirshahi/"><img class="headshot" src="images/Sam.png" alt="Picture of Sam Mirshai"></a>
+                        <a href="https://www.linkedin.com/in/sam-mirshahi/"><img class="headshot" src="{{url_for('static', filename='images/Sam.png')}}" alt="Picture of Sam Mirshai"></a>
                         <p class="member-name">Sam Mirshahi</p>
                         <p class="member-title">Backend Developer</p>
                     </div>
                     <div class="member-info">
-                        <a href="https://www.linkedin.com/in/serenacorrea/"><img class="headshot" src="images/Serena.png" alt="Picture of Serena Correa"></a>
+                        <a href="https://www.linkedin.com/in/serenacorrea/"><img class="headshot" src="{{url_for('static', filename='images/Serena.png')}}" alt="Picture of Serena Correa"></a>
                         <p class="member-name">Serena Correa</p>
                         <p class="member-title">Backend Developer</p>
                     </div>

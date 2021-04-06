@@ -20,7 +20,7 @@
     <!-- ===== CONTENT ===== -->
     <header class="header">
         <a href="{{url_for('index')}}" title="Returns you to welcome page"><img src="{{url_for('static', filename='images/LIMBlogo.svg')}}" class="header-button" id="logoNav" alt="LIMB logo"></a>
-        <a href="homeAbout.html" class="header-button" id="home-about">About LIMB</a>
+        <a href="{{url_for('about_guest')}}" class="header-button" id="home-about">About LIMB</a>
     </header>
 
     <main>
@@ -30,11 +30,20 @@
                 <h1 class="main-header">Register your LIMB product</h1>
             </div>
             
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for msg in messages %}
+                        <p style="font-weight: bold; text-align: center;">{{msg}}</p>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+
             <div class="input-container">
                 <form action="#" method="POST">
                     <label for="serial-number">SERIAL NUMBER</label>
                     <div class="serial-number-form">
-                        <input type="text" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++" required> 
+                        <input type="text" name ="serial-number" id="serial-number" style="text-transform: uppercase" maxlength="8" placeholder="++++++++" required> 
                         <button id="register" class="button-block register">REGISTER</button>
                     </div>
                 </form>

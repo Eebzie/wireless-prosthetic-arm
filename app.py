@@ -97,7 +97,10 @@ def handle_logging(client, userdata, level, buf):
 ##########################################################################################
 @app.route('/')
 def index():
-    return render_template("index.html")
+    if current_user.is_anonymous == True:
+        return render_template("index.html")
+    else:
+        return redirect(url_for('protected'))
 
 ##########################################################################################
 @app.route('/login', methods=['GET', 'POST'])
@@ -121,14 +124,14 @@ def login():
             login_user(user)
             return redirect(url_for('protected'))
         else:
-            flash('Email and Password Combination Incorrect')
+            flash('Incorrect Email and Password Combination')
             return redirect(url_for('login'))
 
 ##########################################################################################
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == "GET":
-        if current_user.is_anonymous != True:
+        if current_user.is_anonymous == False:
             return redirect(url_for('protected'))
         else:
             session['Serial_Confirmed'] = 0
@@ -196,19 +199,29 @@ def register():
 def about():
     return render_template("about.html")
 
+@app.route('/about_guest')
+def about_guest():
+    return render_template("homeAbout.html")
+
 ##########################################################################################
 @app.route('/protected')
 @login_required
 def protected():
 
     cur = mysql.connection.cursor()
+
+    cur.execute('SELECT serialnumber FROM serialnumber WHERE email = %s', [current_user.id])
+    results = cur.fetchone()
+    for result in results:
+        email = result
+
     #GET HISTORICAL EMG DATA
-    cur.execute("SELECT EMG FROM datatable WHERE SerialNumber = '12345678'")
+    cur.execute("SELECT EMG FROM datatable WHERE SerialNumber = %s", [email])
     results = cur.fetchall()
     EMG_Values =[x[0] for x in results]
 
-    #GET HISTORICAL EMG DATA
-    cur.execute("SELECT DateTime FROM datatable WHERE SerialNumber = '12345678'")
+    #GET HISTORICAL TIME DATA
+    cur.execute("SELECT DateTime FROM datatable WHERE SerialNumber = %s", [email])
     results = cur.fetchall()
     Time_Values =[x[0] for x in results]
 
@@ -217,7 +230,7 @@ def protected():
     results = cur.fetchone()
     json_array = ["1"]
     for i in results:
-        json_array[0] = i
+        json_array[0] = i.split(' ')[0]
     cur.close
     
     return render_template("dashboard.html", Time_Object = json.dumps(Time_Values), name = json_array[0], EMG_Object = json.dumps(EMG_Values))
@@ -259,7 +272,7 @@ def clear_userdata():
     now = datetime.now() #current date and time
     date_time = int(now.strftime("%H"))
     print('test')
-    if date_time >= 3 and date_time < 4:
+    if date_time >= 0 and date_time < 1:
         db = MySQLdb.connect(db['mysql_host'], db['mysql_user'], db['mysql_password'], db['mysql_db'])
         cur = db.cursor()
         cur.execute('TRUNCATE TABLE datatable')

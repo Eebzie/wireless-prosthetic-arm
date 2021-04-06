@@ -186,12 +186,18 @@ body{
 
 /* =============== MAIN CSS FOR CONTENT =============== */
 main{
-    padding: 3vh 20vh;
+    padding: 3vh 10vh;
 }
 
-@media (max-width: 1000px){
+@media screen and (max-width: 768px){
     main{
         padding: 30px 5vh;
+    }
+}
+
+@media screen and (max-width: 425px){
+    main{
+        padding: 30px 2vh;
     }
 }
 

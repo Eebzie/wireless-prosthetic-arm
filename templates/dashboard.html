@@ -18,11 +18,11 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
-    <!-- ===== JQuery ===== -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <!-- ===== MAIN JS ===== -->
     <script src="{{url_for('static', filename='js/dashboard.js')}}"></script>
+
+    <!-- JQuery links  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- ===== CONTENT ===== -->
     <header class="header">
@@ -62,16 +62,16 @@
             <!-- ===== Section 1 ===== -->
             <section class="section-1">
                 <div class="left">
-                    <canvas id="myChart" class="chart">
+                    <canvas id="myChart" class="chart" style="width: 80%;">
                 </div>
                 <div class="right">
                     <div class="temp-box upper-box">
                         <span>Finger Temperature Sensor</span>
-                        <div id="fingerTemp">45 C</div>
+                        <div class="sensor1" id="fingerTemp"></div>
                     </div>
                     <div class="temp-box lower-box">
                         <span>Internal Temperature Sensor</span>
-                        <div id="internalTemp">123 C</div>
+                        <div class="sensor2" id="internalTemp"></div>
                     </div>
                 </div>
             </section>
@@ -170,7 +170,7 @@
                         {
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Average EMG Amplitude (mV)',
+                                labelString: 'EMG Amplitude (mV)',
                             }
                         }]
                 },
@@ -205,7 +205,7 @@
                         {
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Average EMG Amplitude (mV)',
+                                labelString: 'EMG Amplitude (mV)',
                             }
                         }]
                 },
@@ -224,10 +224,10 @@
                 liveEMGChart.update();
             }
             $(".sensor1").text("");
-            $(".sensor1").text(Math.round(data[1]));
+            $(".sensor1").text(Math.round(data[1]).toString().concat(" °C"));
 
             $(".sensor2").text("");
-            $(".sensor2").text(Math.round(data[2]));
+            $(".sensor2").text(Math.round(data[2]).toString().concat(" °C"));
         };
 
     function updateData() {
